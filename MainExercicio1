@@ -1,0 +1,57 @@
+package ExercicioClasses;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+
+        try {
+                System.out.println("Escolha uma opção para continuar: ");
+                System.out.println("[C]alcular Média");
+                System.out.println("[S]air");
+                do{
+                String opcao = entrada.next();
+                if ("C".equalsIgnoreCase(opcao)) {
+                    System.out.println("Informe o nº da matricula: ");
+                    String matricula = entrada.next();
+                    System.out.println("Informe o nome do Aluno: ");
+                    String nome = entrada.next();
+                    System.out.println("Informe a 1ª Nota: ");
+                    double n1 = entrada.nextDouble();
+                    if (n1 < 0 || n1 > 10) {
+                        System.out.println("Insira a nota correta!");
+                        n1 = entrada.nextDouble();
+                    }
+                    System.out.println("Informe a 2ª Nota: ");
+                    double n2 = entrada.nextDouble();
+                    if (n2 < 0 || n2 > 10) {
+                        System.out.println("Insira a nota correta!");
+                        n2 = entrada.nextDouble();
+                    }
+                    System.out.println("Informe a 3ª Nota: ");
+                    double n3 = entrada.nextDouble();
+                    if (n3 < 0 || n3 > 10) {
+                        System.out.println("Insira a nota correta!");
+                        n3 = entrada.nextDouble();
+                    }
+                    Aluno aluno = new Aluno(matricula, nome, n1, n2, n3);
+                    aluno.calculaMedia(aluno.getN1(), aluno.getN2(), aluno.getN3());
+                    aluno.calculaMediaF(aluno.getMedia());
+                    aluno.imprimir();
+                } else if ("S".equalsIgnoreCase(opcao)) {
+                    System.out.println("Saindo...");
+                    break;
+                } else {
+                    System.err.println("Informe a opção correta!");
+                    System.out.println("[C]alcular Média");
+                    System.out.println("[S]air");
+                }
+            }while (entrada.hasNext());
+        } finally {
+            entrada.close();
+            System.exit(0);
+        }
+    }
+}
