@@ -1,0 +1,77 @@
+package ExercicioClasses;
+
+public class Aluno {
+
+    private String matricula;
+    private String nome;
+    private double n1;
+    private double n2;
+    private double n3;
+    private double mediaEscola = 7;
+
+    public double getMedia() {
+        return media;
+    }
+
+    private double media;
+    private double mediaFinal;
+
+
+    public Aluno(String matricula, String nome, double n1, double n2, double n3){
+        this.matricula = matricula;
+        this.nome = nome;
+        this.n1 = n1;
+        this.n2 = n2;
+        this.n3 = n3;
+    }
+
+    public double calculaMedia(double n1, double n2, double n3){
+        int peso = 7;
+        this.media = ((n1*2.5) + (n2*2.5) + (n3*2)) / peso;
+        return this.media;
+    }
+
+    public double calculaMediaF(double media){
+        if(this.media < 7){
+            mediaFinal = this.mediaEscola - this.media;
+            return mediaFinal;
+        } else {
+            return 0;
+        }
+    }
+
+    public void imprimir(){
+        System.out.println("Nº da matricula: " + this.getMatricula());
+        System.out.println("Nome do Aluno: " + this.getNome());
+        System.out.println("Nota da 1ª Prova: " + this.getN1());
+        System.out.println("Nota da 2ª Prova: " + this.getN2());
+        System.out.println("Nota do Trabalho: " + this.getN3());
+        System.out.println("Média Final: " + this.media);
+        if(media >= mediaEscola){
+            System.out.println("Aprovado");
+        } else {
+            System.out.println("o Aluno: " + this.getNome() + " Precisa tirar: " + mediaFinal + " Para passar de ano!");
+        }
+    }
+
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getN1() {
+        return n1;
+    }
+
+    public double getN2() {
+        return n2;
+    }
+
+    public double getN3() {
+        return n3;
+    }
+}
